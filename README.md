@@ -23,6 +23,29 @@ Safety behaviour built into the firmware:
 - **STOP** is instant: PWM goes to 0 and the driver is disabled;
 - if the page stops checking in for 3 s (phone locked, tab closed, out of range), the motor ramps to a stop.
 
+## The motor mount
+
+The hardest part of the build was the mount. The RS550 has no flange, so it needs:
+
+- something to stop it twisting under load;
+- room for the wheel directly above a ball lane;
+- a shaft held exactly 66.5 mm above the lane floor.
+
+The base is one printed piece. Side towers lift an open motor cradle over the lane. Two 2 mm pins on a front ring key into the motor's own face mounting holes, so the motor can't turn. Side slots line up with its ventilation openings. A sliding rear door keeps the motor from backing out.
+
+| | |
+|---|---|
+| ![Launcher with motor, wheel and a ball entering the lane](docs/images/cad_launcher_assembly_front.png) | ![Motor seated in the cradle, sliding rear door in orange](docs/images/cad_launcher_assembly_rear.png) |
+| Wheel on the motor pinion, ball entering the lane | Motor in the cradle; the orange sliding door holds it in |
+| ![Base only, from the lane side: face-key ring with two pins](docs/images/cad_launcher_base_front.png) | ![Base only, from the rear: open bed, vent slots and door grooves](docs/images/cad_launcher_base_rear.png) |
+| Base from the lane side: the face-key ring and pins | Base from the rear: open bed, vent slots, door grooves |
+
+![Cut through the lane centre: the wheel's lower edge sits 2 mm into the ball](docs/images/cad_launcher_section.png)
+
+*Cut through the lane centre. The 57 mm wheel's lower edge sits 2 mm below the top of the 40 mm ball, so the spinning wheel squeezes the ball against the lane floor and throws it.*
+
+The renders come from [`cad/preview.scad`](cad/preview.scad). They use a simple stand-in for the motor.
+
 ## Parts list
 
 | Qty | Part | Notes |
@@ -51,6 +74,7 @@ Safety behaviour built into the firmware:
 Parametric sources (OpenSCAD) are in [`cad/`](cad):
 
 - `launcher_base.scad`: `part = "base"`, `"door"` or `"assembly"`;
+- `preview.scad`: the README pictures (`part = "assembly"`, `"base"` or `"section"`);
 - `lib/motor_cradle.scad`: the cradle on its own;
 - `wheel_57mm.scad`: needs OpenSCAD's bundled MCAD library.
 
