@@ -2,7 +2,7 @@
 
 A phone-controlled ping-pong ball launcher: an ESP32 sets the speed of an RS550 motor through a BTS7960 driver. A 3D-printed wheel on the motor spins over the ball and flings it out of a printed lane.
 
-<!-- DEMO VIDEO: drag the video file here in GitHub's web editor. -->
+https://github.com/user-attachments/assets/219ba44c-b2f9-4775-aa88-fa8af91f65d4
 
 ![Launcher, driver, ESP32 and the phone page](docs/images/setup.jpg)
 
